@@ -3,9 +3,6 @@
 -- Submit file:
 --    <your_name>week2_schema_normalized.sql  (your CREATE TABLE + INSERT migration)
 
-
-
-
 ---------- Table Creation----------
 
 
