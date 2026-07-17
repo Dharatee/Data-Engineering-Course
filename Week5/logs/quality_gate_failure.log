@@ -1,0 +1,30 @@
+2026-07-18 01:49:36,868  INFO [pipeline.py:102] Starting FULL pandas ETL run
+2026-07-18 01:49:36,890  INFO [extract.py:12] Extracted 25 rows from the table
+2026-07-18 01:49:36,896  INFO [load.py:21] 0 inserted to dim_driver
+2026-07-18 01:49:36,897  INFO [extract.py:12] Extracted 45 rows from the table
+2026-07-18 01:49:36,903  INFO [load.py:21] 0 inserted to dim_passenger
+2026-07-18 01:49:36,904  INFO [extract.py:12] Extracted 30 rows from the table
+2026-07-18 01:49:36,907  INFO [load.py:21] 0 inserted to dim_vehicle
+2026-07-18 01:49:36,908  INFO [extract.py:12] Extracted 25 rows from the table
+2026-07-18 01:49:36,911  INFO [load.py:21] 0 inserted to dim_location
+2026-07-18 01:49:36,911  INFO [extract.py:12] Extracted 7 rows from the table
+2026-07-18 01:49:36,912  INFO [load.py:21] 0 inserted to dim_payment_method
+2026-07-18 01:49:36,913  INFO [extract.py:12] Extracted 10 rows from the table
+2026-07-18 01:49:36,914  INFO [load.py:21] 0 inserted to dim_promo_code
+2026-07-18 01:49:36,914  INFO [pipeline.py:118] Dimention table load completed on 0.03s
+2026-07-18 01:49:36,914  INFO [extract.py:127] Loading lookup tables into memory
+2026-07-18 01:49:36,918  INFO [pipeline.py:122] Lookup table extraction completed on 0.00s
+2026-07-18 01:49:36,968  INFO [extract.py:12] Extracted 10001 rows from the table
+2026-07-18 01:49:36,968  INFO [pipeline.py:130] Trip extraction  completed on 0.05s
+2026-07-18 01:49:36,990  INFO [transform.py:158] Transformed 10001 rows, skipped 0
+2026-07-18 01:49:36,990  INFO [pipeline.py:134] Transformation completed on 0.02s
+2026-07-18 01:49:36,990  ERROR [pipeline.py:144] FULL pandas ETL run failed
+Traceback (most recent call last):
+  File "/Users/shree/Desktop/pro/Data-Engineering-Course/Week5/etl_using_pandas/pipeline.py", line 137, in main
+    run_quality_checks(fact_df)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/shree/Desktop/pro/Data-Engineering-Course/Week5/etl_using_pandas/quality.py", line 112, in run_quality_checks
+    raise DataQualityError(
+        f"Quality check failed: {first['check']} — {first['detail']}"
+    )
+quality.DataQualityError: Quality check failed: no_negative_fares — 1 rows with fare_amount <= 0
